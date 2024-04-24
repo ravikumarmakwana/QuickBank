@@ -5,6 +5,14 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBank.API", "QuickBank.API\QuickBank.API.csproj", "{7FB3BCEC-E428-4037-A7B0-2D7E72F999B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBank.Data", "QuickBank.Data\QuickBank.Data.csproj", "{43630B16-EFA3-4281-8BBF-0D9232E4B78F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBank.Business", "QuickBank.Business\QuickBank.Business.csproj", "{AFC526CF-3E33-41CB-B2B3-E772BE3CC228}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBank.Entities", "QuickBank.Entities\QuickBank.Entities.csproj", "{AC70AFE1-F718-4126-AC9C-17089F17D6F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBank.Models", "QuickBank.Models\QuickBank.Models.csproj", "{9BC12C5F-5BD8-4DF7-A56E-AD27259DA2D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +23,22 @@ Global
 		{7FB3BCEC-E428-4037-A7B0-2D7E72F999B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FB3BCEC-E428-4037-A7B0-2D7E72F999B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FB3BCEC-E428-4037-A7B0-2D7E72F999B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43630B16-EFA3-4281-8BBF-0D9232E4B78F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43630B16-EFA3-4281-8BBF-0D9232E4B78F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43630B16-EFA3-4281-8BBF-0D9232E4B78F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43630B16-EFA3-4281-8BBF-0D9232E4B78F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFC526CF-3E33-41CB-B2B3-E772BE3CC228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFC526CF-3E33-41CB-B2B3-E772BE3CC228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFC526CF-3E33-41CB-B2B3-E772BE3CC228}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFC526CF-3E33-41CB-B2B3-E772BE3CC228}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC70AFE1-F718-4126-AC9C-17089F17D6F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC70AFE1-F718-4126-AC9C-17089F17D6F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC70AFE1-F718-4126-AC9C-17089F17D6F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC70AFE1-F718-4126-AC9C-17089F17D6F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BC12C5F-5BD8-4DF7-A56E-AD27259DA2D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC12C5F-5BD8-4DF7-A56E-AD27259DA2D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC12C5F-5BD8-4DF7-A56E-AD27259DA2D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BC12C5F-5BD8-4DF7-A56E-AD27259DA2D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
