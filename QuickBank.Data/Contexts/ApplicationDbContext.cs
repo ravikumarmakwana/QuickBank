@@ -5,10 +5,19 @@ using QuickBank.Entities;
 
 namespace QuickBank.Data.Contexts
 {
-    public class ApplicationDbContext : IdentityDbContext<IdentityUser<long>, IdentityRole<long>, long>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole<long>, long>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) { }
+
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<AccountType> AccountTypes { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<FixedDepositType> FixedDepositTypes { get; set; }
+        public DbSet<FixedDeposit> FixedDeposits { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<BankBranch> BankBranches { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

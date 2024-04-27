@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBank.API", "QuickBank.API\QuickBank.API.csproj", "{7FB3BCEC-E428-4037-A7B0-2D7E72F999B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBank.API", "QuickBank.API\QuickBank.API.csproj", "{7FB3BCEC-E428-4037-A7B0-2D7E72F999B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBank.Data", "QuickBank.Data\QuickBank.Data.csproj", "{43630B16-EFA3-4281-8BBF-0D9232E4B78F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBank.Data", "QuickBank.Data\QuickBank.Data.csproj", "{43630B16-EFA3-4281-8BBF-0D9232E4B78F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBank.Business", "QuickBank.Business\QuickBank.Business.csproj", "{AFC526CF-3E33-41CB-B2B3-E772BE3CC228}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBank.Business", "QuickBank.Business\QuickBank.Business.csproj", "{AFC526CF-3E33-41CB-B2B3-E772BE3CC228}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBank.Entities", "QuickBank.Entities\QuickBank.Entities.csproj", "{AC70AFE1-F718-4126-AC9C-17089F17D6F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBank.Entities", "QuickBank.Entities\QuickBank.Entities.csproj", "{AC70AFE1-F718-4126-AC9C-17089F17D6F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBank.Models", "QuickBank.Models\QuickBank.Models.csproj", "{9BC12C5F-5BD8-4DF7-A56E-AD27259DA2D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBank.Models", "QuickBank.Models\QuickBank.Models.csproj", "{9BC12C5F-5BD8-4DF7-A56E-AD27259DA2D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBank.DbMigration", "QuickBank.DbMigration\QuickBank.DbMigration.csproj", "{D2D53DB2-65D2-4552-858A-80E7A07C3603}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBank.DbMigration", "QuickBank.DbMigration\QuickBank.DbMigration.csproj", "{D2D53DB2-65D2-4552-858A-80E7A07C3603}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBank.Core", "QuickBank.Core\QuickBank.Core.csproj", "{F02D5272-729C-4789-9C4A-A075B204F16C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{D2D53DB2-65D2-4552-858A-80E7A07C3603}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2D53DB2-65D2-4552-858A-80E7A07C3603}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2D53DB2-65D2-4552-858A-80E7A07C3603}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F02D5272-729C-4789-9C4A-A075B204F16C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F02D5272-729C-4789-9C4A-A075B204F16C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F02D5272-729C-4789-9C4A-A075B204F16C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F02D5272-729C-4789-9C4A-A075B204F16C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

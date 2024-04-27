@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\QuickBank.Business\QuickBank.Business.csproj" />
+    <ProjectReference Include="..\QuickBank.Core\QuickBank.Core.csproj" />
     <ProjectReference Include="..\QuickBank.DbMigration\QuickBank.DbMigration.csproj" />
   </ItemGroup>
 

@@ -1,4 +1,5 @@
-﻿using QuickBank.Entities.Enums;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using QuickBank.Entities.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -26,5 +27,9 @@ namespace QuickBank.Entities
 
         public List<Address> Addresses { get; set; }
         public List<Account> Accounts { get; set; }
+
+        public ApplicationUser User { get; set; }
+        [ForeignKey(nameof(User))]
+        public long UserId { get; set; }
     }
 }
