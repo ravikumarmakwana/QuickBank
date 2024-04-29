@@ -1,19 +1,9 @@
 ﻿using QuickBank.Entities.Enums;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace QuickBank.Entities
+namespace QuickBank.Models
 {
-    [Table("Addresses")]
-    public class Address
+    public class UpdateAddressRequest
     {
-        [Key]
-        public long AddressId { get; set; }
-
-        public Customer Customer { get; set; }
-        [ForeignKey(nameof(Customer))]
-        public long CustomerId { get; set; }
-
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string City { get; set; }

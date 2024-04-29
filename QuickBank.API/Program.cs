@@ -16,8 +16,9 @@ builder.Services.AddRepositories();
 // Add Core Services
 builder.Services.AddCoreServices();
 
-// Add Business Services.
+// Add Business Services and ServiceValidators.
 builder.Services.AddServices();
+builder.Services.AddServiceValidators();
 
 // Add Identity Configuration
 IdentityConfigurator.Configure(builder.Services);

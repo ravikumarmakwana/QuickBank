@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace QuickBank.API.Controllers
 {
     [ApiController]
+    [Authorize(Roles = "Admin")]
     [Route("[controller]")]
     public class TestController: ControllerBase
     {

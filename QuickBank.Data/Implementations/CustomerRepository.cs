@@ -1,4 +1,5 @@
-﻿using QuickBank.Data.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using QuickBank.Data.Contexts;
 using QuickBank.Data.Interfaces;
 using QuickBank.Entities;
 
@@ -17,6 +18,29 @@ namespace QuickBank.Data.Implementations
         {
             await _context.AddAsync(customer);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task UpdateAsync(Customer customer)
+        {
+            _context.Update(customer);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<bool> DoesAadharNumberExistsAsync(string aadharNumber)
+        {
+            return await _context.Customers.AnyAsync(s => s.AadharNumber == aadharNumber);
+        }
+
+        public async Task<bool> DoesPANExistsAsync(string panNumber)
+        {
+            return await _context.Customers.AnyAsync(s => s.PAN == panNumber);
+        }
+
+        public async Task<Customer> GetCustomerByIdAsync(long customerId)
+        {
+            return await _context.Customers
+                .Include(s => s.Addresses)
+                .FirstOrDefaultAsync(s => s.CustomerId == customerId);
         }
     }
 }
