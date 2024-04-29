@@ -11,7 +11,7 @@ namespace QuickBank.Entities
 
         public Customer Customer { get; set; }
         [ForeignKey(nameof(Customer))]
-        public int CustomerId { get; set; }
+        public long CustomerId { get; set; }
 
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }

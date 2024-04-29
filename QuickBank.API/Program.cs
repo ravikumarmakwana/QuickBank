@@ -1,6 +1,7 @@
 using QuickBank.Data;
 using QuickBank.Core;
 using QuickBank.API.AppStartup;
+using QuickBank.Business;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,14 +10,22 @@ var builder = WebApplication.CreateBuilder(args);
 // Add DbContext
 builder.Services.AddDbContext(builder.Configuration);
 
+// Add Repositories
+builder.Services.AddRepositories();
+
 // Add Core Services
 builder.Services.AddCoreServices();
+
+// Add Business Services.
+builder.Services.AddServices();
 
 // Add Identity Configuration
 IdentityConfigurator.Configure(builder.Services);
 
 // Add Authentication Configuration
 AuthenticationConfigurator.Configure(builder.Services);
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

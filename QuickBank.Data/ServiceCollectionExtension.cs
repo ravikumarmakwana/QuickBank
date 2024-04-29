@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using QuickBank.Data.Contexts;
+using QuickBank.Data.Implementations;
+using QuickBank.Data.Interfaces;
 
 namespace QuickBank.Data
 {
@@ -14,6 +16,12 @@ namespace QuickBank.Data
                     s => s.MigrationsAssembly("QuickBank.DbMigration")
                     )
             );
+        }
+
+        public static void AddRepositories(this IServiceCollection services)
+        {
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
         }
     }
 }

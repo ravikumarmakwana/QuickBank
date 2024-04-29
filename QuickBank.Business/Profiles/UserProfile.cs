@@ -8,7 +8,10 @@ namespace QuickBank.Business.Profiles
     {
         public UserProfile()
         {
-            CreateMap<RegistrationRequest, ApplicationUser>();
+            CreateMap<RegistrationRequest, ApplicationUser>()
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.EmailAddress));
+            CreateMap<RegistrationRequest, Customer>();
+            CreateMap<ApplicationUser, AuthenticationResponse>();
         }
     }
 }

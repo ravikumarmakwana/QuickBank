@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\QuickBank.Entities\QuickBank.Entities.csproj" />
+  </ItemGroup>
+
 </Project>
