@@ -22,6 +22,12 @@ namespace QuickBank.Data
         {
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IBankBranchRepository, BankBranchRepository>();
+            services.AddScoped<IAccountTypeRepository, AccountTypeRepository>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<IFixedDepositTypeRepository, FixedDepositTypeRepository>();
+            services.AddScoped<IFixedDepositRepository, FixedDepositRepository>();
+            services.AddScoped<ITransactionRepository, TransactionRepository>();
         }
     }
 }

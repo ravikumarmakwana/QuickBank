@@ -12,11 +12,17 @@ namespace QuickBank.Business
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IFixedDepositService, FixedDepositService>();
+            services.AddScoped<IInterestService, InterestService>();
+            services.AddScoped<ITransactionService, TransactionService>();
+            services.AddScoped<IAccountService, AccountService>();
         }
 
         public static void AddServiceValidators(this IServiceCollection services)
         {
             services.AddScoped<ICustomerServiceValidator, CustomerServiceValidator>();
+            services.AddScoped<IAccountServiceValidator, AccountServiceValidator>();
+            services.AddScoped<IFixedDepositServiceValidator, FixedDepositServiceValidator>();
         }
     }
 }

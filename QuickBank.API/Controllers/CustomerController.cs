@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using QuickBank.Business.Interfaces;
 using QuickBank.Models;
 
-namespace QuickBank.API.AppStartup
+namespace QuickBank.API.Controllers
 {
     [ApiController]
     [Route("customers")]

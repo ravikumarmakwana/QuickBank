@@ -28,5 +28,10 @@ namespace QuickBank.Entities
 
         public bool IsActive { get; set; }
         public FDUserPerference UserPerference { get; set; }
+
+        public bool DoesMature()
+        {
+            return DateTime.Now.Date >= EndDate;
+        }
     }
 }
