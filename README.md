@@ -28,7 +28,7 @@ This API is designed to facilitate banking operations such as customer managemen
 - C#
 - Azure Functions
 - Entity Framework Core (EF Core)
-- SQL Server
+- MS SQL Server
 - Auto Mapper
 
 ## Functionality
