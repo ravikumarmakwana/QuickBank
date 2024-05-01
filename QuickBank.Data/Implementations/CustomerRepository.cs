@@ -14,10 +14,11 @@ namespace QuickBank.Data.Implementations
             _context = context;
         }
 
-        public async Task CreateAsync(Customer customer)
+        public async Task<Customer> CreateAsync(Customer customer)
         {
             await _context.AddAsync(customer);
             await _context.SaveChangesAsync();
+            return customer;
         }
 
         public async Task UpdateAsync(Customer customer)

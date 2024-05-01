@@ -4,9 +4,8 @@ using QuickBank.Models;
 
 namespace QuickBank.API.Controllers
 {
-    [ApiController]
     [Route("authenticate")]
-    public class AuthenticationController : ControllerBase
+    public class AuthenticationController : BaseController
     {
         private readonly IAuthenticationService _authenticationService;
 

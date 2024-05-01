@@ -33,12 +33,14 @@ namespace QuickBank.Data.Implementations
 
         public async Task<Account> GetAccountByAccountIdAsync(long accountId)
         {
-            return await _context.Accounts.FirstOrDefaultAsync(s => s.AccountId == accountId);
+            return await _context.Accounts.Include(s => s.AccountType)
+                .FirstOrDefaultAsync(s => s.AccountId == accountId);
         }
 
         public async Task<List<Account>> GetAccountsByCustomerIdAsync(long customerId)
         {
-            return await _context.Accounts.Where(s => s.CustomerId == customerId).ToListAsync();
+            return await _context.Accounts.Include(s => s.AccountType)
+                .Where(s => s.CustomerId == customerId).ToListAsync();
         }
     }
 }

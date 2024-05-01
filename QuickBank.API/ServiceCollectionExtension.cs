@@ -1,5 +1,11 @@
-﻿using FluentValidation.AspNetCore;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using Microsoft.AspNetCore.Identity.Data;
+using QuickBank.API.Filters;
+using QuickBank.API.Validators;
+using QuickBank.Entities;
+using QuickBank.Models;
 
 namespace QuickBank.API
 {
@@ -21,6 +27,26 @@ namespace QuickBank.API
                         .AllowAnyHeader();
                 });
             });
+        }
+
+        public static void RegisterValidators(this IServiceCollection services)
+        {
+            services.AddScoped<IValidator<AccountCreationRequest>, AccountCreationRequestValidator>();
+            services.AddScoped<IValidator<AddAddressRequest>, AddAddressRequestValidator>();
+            services.AddScoped<IValidator<CustomerPIIModel>, CustomerPIIModelValidator>();
+            services.AddScoped<IValidator<DepositRequest>, DepositRequestValidator>();
+            services.AddScoped<IValidator<FixedDepositRequest>, FixedDepositRequestValidator>();
+            services.AddScoped<IValidator<FundTransferRequest>, FundTransferRequestValidator>();
+            services.AddScoped<IValidator<RegistrationRequest>, RegistrationRequestValidator>();
+            services.AddScoped<IValidator<UpdateAddressRequest>, UpdateAddressRequestValidator>();
+            services.AddScoped<IValidator<UpdateEmailRequest>, UpdateEmailRequestValidator>();
+            services.AddScoped<IValidator<UpdatePhoneNumberRequest>, UpdatePhoneNumberRequestValidator>();
+            services.AddScoped<IValidator<WithdrawalRequest>, WithdrawalRequestValidator>();
+        }
+
+        public static void RegisterFilters(this IServiceCollection services)
+        {
+            services.AddScoped<ExceptionFilter>();
         }
     }
 }

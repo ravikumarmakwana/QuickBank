@@ -60,7 +60,6 @@ namespace QuickBank.Business.Implementations
 
             var fixedDeposit = _mapper.Map<FixedDeposit>(fixedDepositRequest);
 
-            //fixedDeposit./*InterestRate*/ = fixedDepositType.InterestRate;
             fixedDeposit.IsActive = true;
 
             await WithdrawInterestAmountAsync(fixedDepositRequest, account, fixedDepositType, fixedDeposit);

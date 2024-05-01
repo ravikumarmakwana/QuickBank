@@ -5,9 +5,8 @@ using QuickBank.Models;
 
 namespace QuickBank.API.Controllers
 {
-    [ApiController]
     [Route("Users")]
-    public class UserController : ControllerBase
+    public class UserController : BaseController
     {
         private readonly IUserService _userService;
 

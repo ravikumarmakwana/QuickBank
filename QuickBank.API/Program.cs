@@ -15,6 +15,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add DbContext
 builder.Services.AddDbContext(builder.Configuration);
 
+// Add Model Validators
+builder.Services.RegisterValidators();
+
+// Add API Filters
+builder.Services.RegisterFilters();
+
 // Add Repositories
 builder.Services.AddRepositories();
 

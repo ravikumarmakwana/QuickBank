@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using QuickBank.Business.Interfaces;
+using QuickBank.Core.Constants;
 using QuickBank.Entities.Enums;
 using QuickBank.Models;
 
 namespace QuickBank.API.Controllers
 {
-    [ApiController]
     [Route("transactions")]
-    public class TransactionController : ControllerBase
+    public class TransactionController : BaseController
     {
         private readonly ITransactionService _transactionService;
 
@@ -18,6 +19,7 @@ namespace QuickBank.API.Controllers
 
         [HttpPost]
         [Route("deposit")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         public async Task<ActionResult<string>> Deposit(DepositRequest depositRequest)
         {
@@ -27,6 +29,7 @@ namespace QuickBank.API.Controllers
 
         [HttpPost]
         [Route("withdrawal")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         public async Task<ActionResult<string>> Withdrawal(WithdrawalRequest withdrawalRequest)
         {
@@ -36,6 +39,7 @@ namespace QuickBank.API.Controllers
 
         [HttpPost]
         [Route("transfer-fund")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         public async Task<ActionResult<string>> TransferFund(FundTransferRequest fundTransferRequest)
         {
@@ -45,6 +49,7 @@ namespace QuickBank.API.Controllers
 
         [HttpGet]
         [Route("~/accounts/{accountId}/transactions")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [ProducesResponseType(typeof(List<TransactionDto>), StatusCodes.Status200OK)]
         public async Task<ActionResult<List<TransactionDto>>> GetTransactions(
             long accountId, TransactionRange transactionRange, DateTime? startDate, DateTime? endDate)
@@ -56,6 +61,7 @@ namespace QuickBank.API.Controllers
 
         [HttpGet]
         [Route("{transactionId}")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [ProducesResponseType(typeof(TransactionDto), StatusCodes.Status200OK)]
         public async Task<ActionResult<TransactionDto>> GetTransactionById(long transactionId)
         {
@@ -65,6 +71,7 @@ namespace QuickBank.API.Controllers
 
         [HttpGet]
         [Route("reference-number/{referenceNumber}")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [ProducesResponseType(typeof(TransactionDto), StatusCodes.Status200OK)]
         public async Task<ActionResult<TransactionDto>> GetTransactionByReferenceNumber(string referenceNumber)
         {

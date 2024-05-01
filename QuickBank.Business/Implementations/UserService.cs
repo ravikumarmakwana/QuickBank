@@ -39,11 +39,11 @@ namespace QuickBank.Business.Implementations
             }
 
             await _userManager.AddToRoleAsync(newUser, role.ToString());
-            await CreateCustomerAsync(registrationRequest, newUser);
-            return "Registration Successful.";
+            Customer customer = await CreateCustomerAsync(registrationRequest, newUser);
+            return $"Registration Successful, Your customerId is {customer.CustomerId}.";
         }
 
-        private async Task CreateCustomerAsync(RegistrationRequest registrationRequest, ApplicationUser newUser)
+        private async Task<Customer> CreateCustomerAsync(RegistrationRequest registrationRequest, ApplicationUser newUser)
         {
             Customer customer = _mapper.Map<Customer>(registrationRequest);
 
@@ -52,7 +52,7 @@ namespace QuickBank.Business.Implementations
             customer.AadharNumber = DateTimeOffset.Now.Ticks.ToString();
             customer.PAN = DateTimeOffset.Now.Ticks.ToString();
 
-            await _customerRepository.CreateAsync(customer);
+            return await _customerRepository.CreateAsync(customer);
         }
     }
 }

@@ -4,7 +4,7 @@ namespace QuickBank.Data.Interfaces
 {
     public interface ICustomerRepository
     {
-        Task CreateAsync(Customer customer);
+        Task<Customer> CreateAsync(Customer customer);
         Task UpdateAsync(Customer customer);
         Task<bool> DoesAadharNumberExistsAsync(string aadharNumber);
         Task<bool> DoesPANExistsAsync(string panNumber);

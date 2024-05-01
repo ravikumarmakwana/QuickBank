@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using QuickBank.Business.Interfaces;
+using QuickBank.Core.Constants;
 using QuickBank.Models;
 
 namespace QuickBank.API.Controllers
 {
-    [ApiController]
     [Route("accounts")]
-    public class AccountController : ControllerBase
+    public class AccountController : BaseController
     {
         private readonly IAccountService _accountService;
 
@@ -16,6 +17,7 @@ namespace QuickBank.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [ProducesResponseType(typeof(AccountDto), StatusCodes.Status201Created)]
         public async Task<ActionResult<AccountDto>> CreateNewAccount(AccountCreationRequest accountCreationRequest)
         {
@@ -25,6 +27,7 @@ namespace QuickBank.API.Controllers
 
         [HttpGet]
         [Route("{accountId}")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [ProducesResponseType(typeof(AccountDto), StatusCodes.Status200OK)]
         public async Task<ActionResult<AccountDto>> GetAccountByAccountId(long accountId)
         {
@@ -34,6 +37,7 @@ namespace QuickBank.API.Controllers
 
         [HttpGet]
         [Route("~/customers/{customerId}/accounts")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [ProducesResponseType(typeof(List<AccountDto>), StatusCodes.Status200OK)]
         public async Task<ActionResult<List<AccountDto>>> GetAccountsByCustomerId(long customerId)
         {
@@ -43,6 +47,7 @@ namespace QuickBank.API.Controllers
 
         [HttpPut]
         [Route("close-account/{accountId}")]
+        [Authorize(Roles = Constants.AdminAccess)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<ActionResult> CloseAccountByAccountId(long accountId)
         {

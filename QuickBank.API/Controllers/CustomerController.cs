@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using QuickBank.Business.Interfaces;
+using QuickBank.Core.Constants;
 using QuickBank.Models;
 
 namespace QuickBank.API.Controllers
 {
-    [ApiController]
     [Route("customers")]
-    public class CustomerController : ControllerBase
+    public class CustomerController : BaseController
     {
         private readonly ICustomerService _customerService;
 
@@ -16,7 +16,7 @@ namespace QuickBank.API.Controllers
             _customerService = customerService;
         }
 
-        [Authorize(Roles = "Admin,User")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [HttpPost("{customerId}/addresses")]
         public async Task<ActionResult> AddNewAddressAsync(long customerId, AddAddressRequest addAddressRequest)
         {
@@ -24,7 +24,7 @@ namespace QuickBank.API.Controllers
             return NoContent();
         }
 
-        [Authorize(Roles = "Admin,User")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [HttpPut("{customerId}/addresses/{addressId}")]
         public async Task<ActionResult> UpdateAddressAsync(long customerId, long addressId, UpdateAddressRequest updateAddressRequest)
         {
@@ -32,7 +32,7 @@ namespace QuickBank.API.Controllers
             return NoContent();
         }
 
-        [Authorize(Roles = "Admin,User")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [HttpDelete("{customerId}/addresses/{addressId}")]
         public async Task<ActionResult> RemoveAddressAsync(long customerId, long addressId)
         {
@@ -40,7 +40,7 @@ namespace QuickBank.API.Controllers
             return NoContent();
         }
 
-        [Authorize(Roles = "Admin,User")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [HttpPost("{customerId}/PII")]
         public async Task<ActionResult> AddCustomerPIIAsync(long customerId, CustomerPIIModel customerPII)
         {
@@ -48,7 +48,7 @@ namespace QuickBank.API.Controllers
             return NoContent();
         }
 
-        [Authorize(Roles = "Admin,User")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [HttpPut("{customerId}/update-email")]
         public async Task<ActionResult> UpdateEmailAsync(long customerId, UpdateEmailRequest updateEmailRequest)
         {
@@ -56,7 +56,7 @@ namespace QuickBank.API.Controllers
             return NoContent();
         }
 
-        [Authorize(Roles = "Admin,User")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [HttpPut("{customerId}/update-mobile-number")]
         public async Task<ActionResult> UpdateEmailAsync(long customerId, UpdatePhoneNumberRequest updatePhoneNumberRequest)
         {
@@ -64,7 +64,7 @@ namespace QuickBank.API.Controllers
             return NoContent();
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = Constants.AdminAccess)]
         [HttpDelete("{customerId}")]
         public async Task<ActionResult> RemoveCustomerByIdAsync(long customerId)
         {
@@ -72,7 +72,7 @@ namespace QuickBank.API.Controllers
             return NoContent();
         }
 
-        [Authorize(Roles = "Admin,Role")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [HttpGet("{customerId}")]
         public async Task<ActionResult> GetCustomerByIdAsync(long customerId)
         {

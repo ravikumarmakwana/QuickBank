@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using QuickBank.Business.Interfaces;
+using QuickBank.Core.Constants;
 using QuickBank.Models;
 
 namespace QuickBank.API.Controllers
 {
-    [ApiController]
     [Route("fixed-deposits")]
-    public class FixedDepositController : ControllerBase
+    public class FixedDepositController : BaseController
     {
         private readonly IFixedDepositService _fixedDepositService;
 
@@ -17,6 +18,7 @@ namespace QuickBank.API.Controllers
 
         [HttpPost]
         [Route("open-fd")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [ProducesResponseType(typeof(FixedDepositDto), StatusCodes.Status201Created)]
         public async Task<ActionResult<FixedDepositDto>> AddFixedDeposit(FixedDepositRequest fixedDepositRequest)
         {
@@ -26,6 +28,7 @@ namespace QuickBank.API.Controllers
 
         [HttpPut]
         [Route("close-fd/{fixedDepositId}")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<ActionResult> CloseFixedDeposit(long fixedDepositId)
         {
@@ -35,6 +38,7 @@ namespace QuickBank.API.Controllers
 
         [HttpGet]
         [Route("{fixedDepositId}")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [ProducesResponseType(typeof(FixedDepositDto), StatusCodes.Status200OK)]
         public async Task<ActionResult<FixedDepositDto>> GetFixedDepositById(long fixedDepositId)
         {
@@ -44,6 +48,7 @@ namespace QuickBank.API.Controllers
 
         [HttpGet]
         [Route("~/accounts/{accountId}/fixed-deposits")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [ProducesResponseType(typeof(List<FixedDepositDto>), StatusCodes.Status200OK)]
         public async Task<ActionResult<List<FixedDepositDto>>> GetFixedDepositForAccount(long accountId)
         {
@@ -53,6 +58,7 @@ namespace QuickBank.API.Controllers
 
         [HttpGet]
         [Route("~/customers/{customerId}/fixed-deposits")]
+        [Authorize(Roles = Constants.CustomerAccess)]
         [ProducesResponseType(typeof(List<FixedDepositDto>), StatusCodes.Status200OK)]
         public async Task<ActionResult<List<FixedDepositDto>>> GetFixedDepositForCustomer(long customerId)
         {
