@@ -8,5 +8,6 @@ namespace QuickBank.Business.Interfaces
         Task CloseAccountByAccountIdAsync(long accountId);
         Task<AccountDto> GetAccountByAccountIdAsync(long accountId);
         Task<List<AccountDto>> GetAccountsByCustomerIdAsync(long customerId);
+        Task DepositQuarterlyInterest(int financialQuarter);
     }
 }

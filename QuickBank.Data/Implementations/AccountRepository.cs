@@ -28,7 +28,11 @@ namespace QuickBank.Data.Implementations
 
         public async Task<List<Account>> GetAllAccounts()
         {
-            return await _context.Accounts.Include(s => s.Transactions).Include(s => s.FixedDeposits).ToListAsync();
+            return await _context.Accounts
+                .Include(s => s.AccountType)
+                .Include(s => s.Transactions)
+                .Include(s => s.FixedDeposits)
+                .ToListAsync();
         }
 
         public async Task<Account> GetAccountByAccountIdAsync(long accountId)

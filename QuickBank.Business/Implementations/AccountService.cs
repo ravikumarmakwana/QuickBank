@@ -15,6 +15,8 @@ namespace QuickBank.Business.Implementations
         private readonly ICustomerRepository _customerRepository;
         private readonly IAccountServiceValidator _accountServiceValidator;
         private readonly ICustomerServiceValidator _customerServiceValidator;
+        private readonly ITransactionService _transactionService;
+        private readonly IInterestService _interestService;
         private readonly IMapper _mapper;
 
         public AccountService(
@@ -22,12 +24,16 @@ namespace QuickBank.Business.Implementations
             ICustomerRepository customerRepository, 
             IAccountServiceValidator accountServiceValidator, 
             ICustomerServiceValidator customerServiceValidator, 
+            ITransactionService transactionService,
+            IInterestService interestService,
             IMapper mapper)
         {
             _accountRepository = accountRepository;
             _customerRepository = customerRepository;
             _accountServiceValidator = accountServiceValidator;
             _customerServiceValidator = customerServiceValidator;
+            _transactionService = transactionService;
+            _interestService = interestService;
             _mapper = mapper;
         }
 
@@ -85,6 +91,33 @@ namespace QuickBank.Business.Implementations
             _accountServiceValidator.ValidateAccountExists(accountId, account);
 
             return account;
+        }
+
+        public async Task DepositQuarterlyInterest(int financialQuarter)
+        {
+            var allAccounts = await _accountRepository.GetAllAccounts();
+
+            var activeAccounts = allAccounts
+                .Where(_ => _.AccountStatus == AccountStatus.Active)
+                .ToList();
+
+            Duration duration = new TimeDurationService().GetFinancialQuarter(financialQuarter);
+
+            var interestsForActiveAccounts = await _interestService.CalculateInterestAsync(
+                activeAccounts,
+                duration.FromDate,
+                duration.ToDate);
+
+            interestsForActiveAccounts.ForEach(async computedInterest =>
+            {
+                await _transactionService.Deposit(
+                    new DepositRequest
+                    {
+                        AccountId = computedInterest.Account.AccountId,
+                        DepositAmount = computedInterest.InterestAmount,
+                        Particulars = "Quarterly Interest"
+                    });
+            });
         }
     }
 }

@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBank.Models", "QuickBa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBank.DbMigration", "QuickBank.DbMigration\QuickBank.DbMigration.csproj", "{D2D53DB2-65D2-4552-858A-80E7A07C3603}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBank.Core", "QuickBank.Core\QuickBank.Core.csproj", "{F02D5272-729C-4789-9C4A-A075B204F16C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBank.Core", "QuickBank.Core\QuickBank.Core.csproj", "{F02D5272-729C-4789-9C4A-A075B204F16C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickBank.Functions", "QuickBank.Functions\QuickBank.Functions.csproj", "{37534B14-3459-4B59-89BE-FD76D961FCE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{F02D5272-729C-4789-9C4A-A075B204F16C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F02D5272-729C-4789-9C4A-A075B204F16C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F02D5272-729C-4789-9C4A-A075B204F16C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37534B14-3459-4B59-89BE-FD76D961FCE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37534B14-3459-4B59-89BE-FD76D961FCE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37534B14-3459-4B59-89BE-FD76D961FCE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37534B14-3459-4B59-89BE-FD76D961FCE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

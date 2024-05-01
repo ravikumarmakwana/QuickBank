@@ -67,8 +67,8 @@ namespace QuickBank.Business.Implementations
         private double GetOpeningBalanceForDay(List<Transaction> transactions, DateTime date)
         {
             return transactions
-                .Last(_ => _.TransactionDate < date)
-                .TotalBalance;
+                .LastOrDefault(_ => _.TransactionDate < date)?
+                .TotalBalance ?? 0;
         }
 
         private List<Transaction> GetTransactionsForDay(DateTime date, List<Transaction> transactions)
@@ -83,9 +83,13 @@ namespace QuickBank.Business.Implementations
             List<Transaction> transactionForDay,
             double interestRate)
         {
-            var minBalanceAcrossAllTransactions = transactionForDay
-                .OrderBy(_ => _.TransactionDate)
-                .Min(_ => _.TotalBalance);
+            double minBalanceAcrossAllTransactions = 0;
+            if(transactionForDay.Any())
+            {
+                minBalanceAcrossAllTransactions = transactionForDay
+                    .OrderBy(_ => _.TransactionDate)
+                    .Min(_ => _.TotalBalance);
+            }
 
             var minBalanceForDay = Math.Min(
                 openingBalanceForDay,

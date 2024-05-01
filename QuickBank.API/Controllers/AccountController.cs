@@ -54,5 +54,35 @@ namespace QuickBank.API.Controllers
             await _accountService.CloseAccountByAccountIdAsync(accountId);
             return NoContent();
         }
+
+        [HttpPost]
+        [Route("add-quarterly-interest")]
+        public async Task<ActionResult> AddQuarterlyInterest()
+        {
+            await _accountService.DepositQuarterlyInterest(GetCurrentQuarter());
+            return Ok();
+        }
+
+        private int GetCurrentQuarter()
+        {
+            var currentMonth = DateTime.Now.Month;
+
+            if (currentMonth <= 3)
+            {
+                return 1;
+            }
+            else if (currentMonth >= 4 || currentMonth <= 6)
+            {
+                return 2;
+            }
+            else if (currentMonth >= 7 || currentMonth <= 9)
+            {
+                return 3;
+            }
+            else
+            {
+                return 4;
+            }
+        }
     }
 }

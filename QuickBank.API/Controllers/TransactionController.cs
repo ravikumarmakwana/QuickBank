@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using QuickBank.Business.Interfaces;
 using QuickBank.Core.Constants;
+using QuickBank.Entities;
 using QuickBank.Entities.Enums;
 using QuickBank.Models;
 
@@ -77,6 +78,14 @@ namespace QuickBank.API.Controllers
         {
             var transaction = await _transactionService.GetTransactionByReferenceNumberAsync(referenceNumber);
             return Ok(transaction);
+        }
+
+        [HttpPost]
+        [Route("update-account-status")]
+        public async Task<ActionResult> UpdateAccountStatus()
+        {
+            await _transactionService.UpdateAccountStatus();
+            return Ok();
         }
     }
 }

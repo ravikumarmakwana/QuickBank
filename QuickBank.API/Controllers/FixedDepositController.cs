@@ -65,5 +65,13 @@ namespace QuickBank.API.Controllers
             var fixedDeposits = await _fixedDepositService.GetAllFixedDepositForCustomer(customerId);
             return Ok(fixedDeposits);
         }
+
+        [HttpPost]
+        [Route("update-fixed-deposits")]
+        public async Task<ActionResult> UpdateFixedDeposits()
+        {
+            await _fixedDepositService.ComputeFixedDeposits();
+            return Ok();
+        }
     }
 }

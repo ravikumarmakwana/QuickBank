@@ -195,7 +195,7 @@ namespace QuickBank.DbMigration.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Accounts");
+                    b.ToTable("Accounts", (string)null);
                 });
 
             modelBuilder.Entity("QuickBank.Entities.AccountType", b =>
@@ -233,7 +233,7 @@ namespace QuickBank.DbMigration.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("AccountTypes");
+                    b.ToTable("AccountTypes", (string)null);
                 });
 
             modelBuilder.Entity("QuickBank.Entities.Address", b =>
@@ -278,7 +278,7 @@ namespace QuickBank.DbMigration.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Addresses");
+                    b.ToTable("Addresses", (string)null);
                 });
 
             modelBuilder.Entity("QuickBank.Entities.ApplicationUser", b =>
@@ -412,7 +412,7 @@ namespace QuickBank.DbMigration.Migrations
                     b.HasIndex("BranchCode")
                         .IsUnique();
 
-                    b.ToTable("BankBranches");
+                    b.ToTable("BankBranches", (string)null);
                 });
 
             modelBuilder.Entity("QuickBank.Entities.Customer", b =>
@@ -473,7 +473,7 @@ namespace QuickBank.DbMigration.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customers", (string)null);
                 });
 
             modelBuilder.Entity("QuickBank.Entities.FixedDeposit", b =>
@@ -517,7 +517,7 @@ namespace QuickBank.DbMigration.Migrations
 
                     b.HasIndex("FixedDepositTypeId");
 
-                    b.ToTable("FixedDeposits");
+                    b.ToTable("FixedDeposits", (string)null);
                 });
 
             modelBuilder.Entity("QuickBank.Entities.FixedDepositType", b =>
@@ -540,7 +540,7 @@ namespace QuickBank.DbMigration.Migrations
                     b.HasIndex("TypeName")
                         .IsUnique();
 
-                    b.ToTable("FixedDepositTypes");
+                    b.ToTable("FixedDepositTypes", (string)null);
                 });
 
             modelBuilder.Entity("QuickBank.Entities.Transaction", b =>
@@ -574,7 +574,7 @@ namespace QuickBank.DbMigration.Migrations
 
                     b.HasIndex("AccountId");
 
-                    b.ToTable("Transactions");
+                    b.ToTable("Transactions", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<long>", b =>
